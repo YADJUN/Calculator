@@ -65,7 +65,8 @@ public class Solution {
             }
             public static void chekExeptions (String[] split){
             if (split.length > 2){throw new RuntimeException("More than two operands")} 
-            if (!Converter.isRoman(split[0]) && Converter.isRoman(split[1])){throw new RuntimeException("invalid arithmetic operation");}  
+            if (!Converter.isRoman(split[0]) && Converter.isRoman(split[1])){throw new RuntimeException("invalid arithmetic operation");} 
+            if (Converter.isRoman(split[0]) && !Converter.isRoman(split[1])){throw new RuntimeException("invalid arithmetic operation");} 
             }
         }
 
