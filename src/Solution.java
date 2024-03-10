@@ -10,10 +10,12 @@ public class Solution {
                 String[] operands = {"+", "-", "*", "/"};
                 String[] regexActions = {"\\+", "-", "\\*", "/"};
                 int index2 = operandIndex(operands, input);
+
                 String[] split = input.split(regexActions[index2]);
+                chekExeptions(split);
+                
+                
                 int[] arrayOperands;
-                if (split.length > 2){throw new RuntimeException("More than two operands")}
-                if (!Converter.isRoman(split[0]) && Converter.isRoman(split[1])){throw new RuntimeException("invalid arithmetic operation");}
                 if (!Converter.isRoman(split[0]) && !Converter.isRoman(split[1])) {
                     arrayOperands = convertStringToArabian(split);
                     return String.valueOf(calculate(operands, index2, arrayOperands));
@@ -60,6 +62,10 @@ public class Solution {
                     case "*" -> array[0] * array[1];
                     default -> array[0] / array[1];
                 };
+            }
+            public static void chekExeptions (String[] split){
+            if (split.length > 2){throw new RuntimeException("More than two operands")} 
+            if (!Converter.isRoman(split[0]) && Converter.isRoman(split[1])){throw new RuntimeException("invalid arithmetic operation");}  
             }
         }
 
