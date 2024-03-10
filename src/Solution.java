@@ -12,6 +12,7 @@ public class Solution {
                 int index2 = operandIndex(operands, input);
                 String[] split = input.split(regexActions[index2]);
                 int[] arrayOperands;
+                if (split.length > 2){throw new RuntimeException("More than two operands")}
                 if (!Converter.isRoman(split[0]) && Converter.isRoman(split[1])){throw new RuntimeException("invalid arithmetic operation");}
                 if (!Converter.isRoman(split[0]) && !Converter.isRoman(split[1])) {
                     arrayOperands = convertStringToArabian(split);
